@@ -10,4 +10,5 @@ import java.util.List;
 public interface EpisodeRepository extends JpaRepository<Episode, Long> {
 	 List<Episode> findAll();
 	 Episode findById(Long id);
+	 Episode findByTitle(String title);
 }

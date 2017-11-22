@@ -20,6 +20,9 @@ public class EpisodeServiceImpl implements EpisodeService {
     }
 
     @Override
+    public Episode findEpisodeByTitle(String title) { return episodeRepository.findByTitle(title); }
+
+    @Override
     public void saveEpisode(Episode episode) {
         episodeRepository.save(episode);
     }

@@ -35,3 +35,22 @@ JSON example:
 	"title":"New hope",
 	"episodeNo":1
 }
+
+4. Dodanie episodeReview - POST
+
+path: http://localhost:8080/episodeReview
+
+JSON example:
+
+{
+	"series": {
+		"title":"Gra o tron"
+	},
+	"episode": {
+		"title":"GOT - S01e01qwe"
+	},
+	"episodeReview": {
+		"content":"Nice episode",
+		"mark": 4
+	}
+}

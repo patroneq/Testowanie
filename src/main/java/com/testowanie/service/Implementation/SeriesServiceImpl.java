@@ -20,6 +20,9 @@ public class SeriesServiceImpl implements SeriesService {
 	}
 
 	@Override
+	public Series findSeriesByTitle(String title) { return seriesRepository.findByTitle(title); }
+
+	@Override
 	public void saveSeries(Series series) {
 		seriesRepository.save(series);
 	}

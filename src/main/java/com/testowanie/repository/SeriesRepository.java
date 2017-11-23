@@ -10,4 +10,5 @@ import java.util.List;
 public interface SeriesRepository extends JpaRepository<Series, Long> {
 	 List<Series> findAll();
 	 Series findById(Long id);
+	 Series findByTitle(String title);
 }

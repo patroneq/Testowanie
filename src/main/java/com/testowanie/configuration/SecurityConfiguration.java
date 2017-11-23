@@ -21,6 +21,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 				.antMatchers("/episode/*").permitAll()
 				.antMatchers("/movieReview").permitAll()
 				.antMatchers("/movieReview/*").permitAll()
+				.antMatchers("/episodeReview").permitAll()
+				.antMatchers("/episodeReview/*").permitAll()
 				.and().csrf().disable();
 	}
 }

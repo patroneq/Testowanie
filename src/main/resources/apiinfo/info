@@ -1,0 +1,37 @@
+Nie ma informacji o metodach GET, gdyż nie wymagają one dodatkowego komentarza, ani przesyłania dnaych w Body
+
+1. Dodanie movieReview - POST
+
+path: http://localhost:8080/movieReview
+
+JSON example:
+{
+	"movie": {
+		"title":"Titanic"
+	},
+	"movieReview": {
+		"content":"Bad movie",
+		"mark": 3
+	}
+}
+
+
+2. Dodanie movie - POST
+
+path: http://localhost:8080/movie
+
+JSON example:
+{
+	"title":"Titanic"
+}
+
+
+3. Dodanie episode - POST
+
+path: http://localhost:8080/episode
+
+JSON example:
+{
+	"title":"New hope",
+	"episodeNo":1
+}

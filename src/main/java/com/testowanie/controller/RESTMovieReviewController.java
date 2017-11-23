@@ -26,10 +26,13 @@ public class RESTMovieReviewController {
         String title = movieMovieReviewContext.getMovie().getTitle();
         Movie movie = movieService.findMovieByTitle(title);
 
-        movieReview.setMovie(movie);
+        if (movie != null) {
+            movieReview.setMovie(movie);
+            movieReviewService.saveMovieReview(movieReview);
 
-        movieReviewService.saveMovieReview(movieReview);
-
-        return new Message(200, "Movie review has been added successfully!");
+            return new Message(200, "Movie review has been added successfully!");
+        } else {
+            return new Message (405, "Movie does not exist!!!");
+        }
     }
 }

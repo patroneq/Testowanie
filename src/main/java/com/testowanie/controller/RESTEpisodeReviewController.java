@@ -30,21 +30,26 @@ public class RESTEpisodeReviewController {
         String title = episodeSeriesEpisodeReviewContext.getSeries().getTitle();
         Series series = seriesService.findSeriesByTitle(title);
 
-        Episode episode = episodeService.findEpisodeByTitle(episodeSeriesEpisodeReviewContext.getEpisode().getTitle());
-        boolean checkIfExists = false;
+        if (series != null) {
 
-        List<Season> seasons = series.getSeasons();
-        for (Season season : seasons) {
-            if (season.getEpisodes().contains(episode)) {
-                checkIfExists = true;
-                episodeReview.setEpisode(episode);
-                episodeReviewService.saveEpisodeReview(episodeReview);
+            Episode episode = episodeService.findEpisodeByTitle(episodeSeriesEpisodeReviewContext.getEpisode().getTitle());
+            boolean checkIfExists = false;
+
+            List<Season> seasons = series.getSeasons();
+            for (Season season : seasons) {
+                if (season.getEpisodes().contains(episode)) {
+                    checkIfExists = true;
+                    episodeReview.setEpisode(episode);
+                    episodeReviewService.saveEpisodeReview(episodeReview);
+                }
             }
-        }
-        if (checkIfExists == true) {
-            return new Message(200, "Episode review has been added successfully!");
+            if (checkIfExists == true) {
+                return new Message(200, "Episode review has been added successfully!");
+            } else {
+                return new Message(405, "Episode does not exist in this series!");
+            }
         } else {
-            return new Message(205, "Episode does not exist in this series!");
+            return new Message (405, "Series does not exist!!!");
         }
     }
 }
